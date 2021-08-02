@@ -25,8 +25,9 @@ class Player:
         self.total_score = 0
 
 class Card:
-    # suit
-    # value
+    def __init__(self, suit, value):
+        self.suit = suit
+        self.value = value
 
 class Deck:
     # top_card
