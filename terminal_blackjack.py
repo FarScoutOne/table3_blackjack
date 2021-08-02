@@ -9,6 +9,7 @@ There are still a few aspects that need to be decided:
 - Will the deck be shuffled/randomized and prior to a hand, or will the only one card be determined at a time? (Schrodinger's deck)
 - How many hands can be used with one deck?
 - Will a manual be provided?
+- How will scoring be determined? (a point per hand won vs betting)
 '''
 
 print("Welcome to table 3.")
