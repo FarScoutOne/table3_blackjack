@@ -12,5 +12,8 @@ There are still a few aspects that need to be decided:
 - How will scoring be determined? (a point per hand won vs betting)
 '''
 
+# Greeting
 print("Welcome to table 3.")
 print("Please, have a seat.")
+
+# Create classes and define global variables
