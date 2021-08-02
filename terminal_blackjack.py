@@ -20,9 +20,9 @@ print("Please, have a seat.")
 class Player:
     def __init__(self, name):
         self.name = name
-        cards_in_hand = []
-
-    # save total value of current hand
+        self.cards_in_hand = []
+        self.hand_value = 0
+        self.total_score = 0
 
 class Card:
     # suit
