@@ -17,3 +17,17 @@ print("Welcome to table 3.")
 print("Please, have a seat.")
 
 # Create classes and define global variables
+class Player:
+    def __init__(self, name):
+        self.name = name
+        cards_in_hand = []
+
+    # save total value of current hand
+
+class Card:
+    # suit
+    # value
+
+class Deck:
+    # top_card
+    # number of cards remaining
