@@ -56,7 +56,7 @@ class Card:
     # If the card's suit is heart or diamond, render it red
     def __repr__(self):
         if self.suit == '♥' or self.suit == '♦':
-            return f"| {bcolors.RED}{str(self.value)} {self.suit}{bcolors.RESET}|"
+            return f"| {bcolors.RED}{str(self.value)} {self.suit}{bcolors.RESET} |"
         else:
             return f"|{str(self.value)} {self.suit}| "
 
