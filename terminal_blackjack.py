@@ -44,7 +44,7 @@ class Deck:
 
     # Returns a random card popped out of the remaining cards in the deck
     def remove_card(self):
-        top_card = self.cards.pop(random.randint(0, len(self.cards)))
+        top_card = self.cards.pop(random.randint(0, len(self.cards) - 1))
 
         return top_card
 
