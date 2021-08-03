@@ -3,8 +3,8 @@
 # started on: 8/1/2021
 
 # Greeting
-print("Welcome to table 3.")
-print("Please, have a seat.")
+# print("Welcome to table 3.")
+# print("Please, have a seat.")
 
 # Required modules
 import random
