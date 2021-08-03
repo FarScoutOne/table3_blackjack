@@ -10,6 +10,10 @@ print("Please, have a seat.")
 import random
 
 # Create classes and define global variables
+class bcolors:
+    RED = '\033[91m' #RED
+    RESET = '\033[0m' #RESET COLOR
+
 class Game:
     def __init__(self, num_players):
         self.num_players = num_players
@@ -25,17 +29,17 @@ class Deck:
     def __init__(self):
         self.cards = [
         # Hearts
-        [2,'H'], [3,'H'], [4,'H'], [5,'H'], [6,'H'], [7,'H'], [8,'H'], [9,'H'], [10,'H'],
-        ['J','H'], ['Q','H'], ['K','H'], ['A','H'],
+        [2,'♥'], [3,'♥'], [4,'♥'], [5,'♥'], [6,'♥'], [7,'♥'], [8,'♥'], [9,'♥'], [10,'♥'],
+        ['J','♥'], ['Q','♥'], ['K','♥'], ['A','♥'],
         # Diamonds
-        [2,'D'], [3,'D'], [4,'D'], [5,'D'], [6,'D'], [7,'D'], [8,'D'], [9,'D'], [10,'D'],
-        ['J','D'], ['Q','D'], ['K','D'], ['A','D'],
+        [2,'♦'], [3,'♦'], [4,'♦'], [5,'♦'], [6,'♦'], [7,'♦'], [8,'♦'], [9,'♦'], [10,'♦'],
+        ['J','♦'], ['Q','♦'], ['K','♦'], ['A','♦'],
         # Clubs
-        [2,'C'], [3,'C'], [4,'C'], [5,'C'], [6,'C'], [7,'C'], [8,'C'], [9,'C'], [10,'C'],
-        ['J','C'], ['Q','C'], ['K','C'], ['A','C'],
+        [2,'♣'], [3,'♣'], [4,'♣'], [5,'♣'], [6,'♣'], [7,'♣'], [8,'♣'], [9,'♣'], [10,'♣'],
+        ['J','♣'], ['Q','♣'], ['K','♣'], ['A','♣'],
         # Spades
-        [2,'S'], [3,'S'], [4,'S'], [5,'S'], [6,'S'], [7,'S'], [8,'S'], [9,'S'], [10,'S'],
-        ['J','S'], ['Q','S'], ['K','S'], ['A','S'],
+        [2,'♠'], [3,'♠'], [4,'♠'], [5,'♠'], [6,'♠'], [7,'♠'], [8,'♠'], [9,'♠'], [10,'♠'],
+        ['J','♠'], ['Q','♠'], ['K','♠'], ['A','♠'],
         ]
 
     # Returns a random card popped out of the remaining cards in the deck
@@ -51,11 +55,12 @@ class Card:
 
     # If the card's suit is heart or diamond, render it red
     def __repr__(self):
-        if self.suit == 'H' or self.suit == 'D':
-            pass
-        return "|" + str(self.value) + self.suit + "|"
+        if self.suit == '♥' or self.suit == '♦':
+            return f"| {bcolors.RED}{str(self.value)} {self.suit}{bcolors.RESET}|"
+        else:
+            return f"|{str(self.value)} {self.suit}| "
 
-# TESTING
+### TESTING ###
 new_deck = Deck()
 next_card = new_deck.remove_card()
 new_card = Card(next_card[1], next_card[0])
