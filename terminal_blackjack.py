@@ -17,11 +17,6 @@ class Player:
         self.hand_value = 0
         self.total_score = 0
 
-class Card:
-    def __init__(self, suit, value):
-        self.suit = suit
-        self.value = value
-
 class Deck:
     def __init__(self):
         self.cards = [
