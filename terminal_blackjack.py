@@ -16,7 +16,16 @@ class bcolors:
 
 class Game:
     def __init__(self, num_players):
-        self.num_players = num_players
+        self.players = list(range(num_players + 1))
+        self.players[0] = 'Dealer'
+        self.new_deck = Deck()
+        self.deal()
+        self.deal()
+
+    def deal(self):
+        self.new_card = self.new_deck.remove_card()
+        self.new_card = Card(self.new_card[0], self.new_card[1])
+        print(self.new_card, end ="  ")
 
 class Player:
     def __init__(self, name):
@@ -49,7 +58,7 @@ class Deck:
         return top_card
 
 class Card:
-    def __init__(self, suit, value):
+    def __init__(self, value, suit):
         self.suit = suit
         self.value = value
 
@@ -59,3 +68,5 @@ class Card:
             return f"| {bcolors.RED}{str(self.value)} {self.suit}{bcolors.RESET} |"
         else:
             return f"| {str(self.value)} {self.suit} |"
+
+new_game = Game(1)
