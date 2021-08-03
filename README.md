@@ -9,3 +9,5 @@ You can have 1-2 players play against the dealer. The dealer is played by the co
 
 
 ## Technical Requirements
+
+## Installation Instructions

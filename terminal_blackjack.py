@@ -2,18 +2,47 @@
 # by: Ryne Smith
 # started on: 8/1/2021
 
-'''
-This is a simple game of blackjack that plays in the command-line terminal.
-There are still a few aspects that need to be decided:
-- Will more than one player be able to play against the dealer/computer?
-- Will the deck be shuffled/randomized and prior to a hand, or will the only one card be determined at a time? (Schrodinger's deck)
-- How many hands can be used with one deck?
-- Will a manual be provided?
-- How will scoring be determined? (a point per hand won vs betting)
-'''
-
 # Greeting
 print("Welcome to table 3.")
 print("Please, have a seat.")
 
+# Required modules
+import random
+
 # Create classes and define global variables
+class Game:
+    def __init__(self, num_players):
+        self.num_players = num_players
+
+class Player:
+    def __init__(self, name):
+        self.name = name
+        self.cards_in_hand = []
+        self.hand_value = 0
+        self.total_score = 0
+
+class Deck:
+    def __init__(self):
+        self.cards = [
+        # Hearts
+        [2,'H'], [3,'H'], [4,'H'], [5,'H'], [6,'H'], [7,'H'], [8,'H'], [9,'H'], [10,'H'],
+        ['J','H'], ['Q','H'], ['K','H'], ['A','H'],
+        # Diamonds
+        [2,'D'], [3,'D'], [4,'D'], [5,'D'], [6,'D'], [7,'D'], [8,'D'], [9,'D'], [10,'D'],
+        ['J','D'], ['Q','D'], ['K','D'], ['A','D'],
+        # Clubs
+        [2,'C'], [3,'C'], [4,'C'], [5,'C'], [6,'C'], [7,'C'], [8,'C'], [9,'C'], [10,'C'],
+        ['J','C'], ['Q','C'], ['K','C'], ['A','C'],
+        # Spades
+        [2,'S'], [3,'S'], [4,'S'], [5,'S'], [6,'S'], [7,'S'], [8,'S'], [9,'S'], [10,'S'],
+        ['J','S'], ['Q','S'], ['K','S'], ['A','S'],
+        ]
+
+    # Returns a random card popped out of the remaining cards in the deck
+    def remove_card(self):
+        top_card = self.cards.pop(random.randint(0, len(self.cards)))
+
+        return top_card
+
+class Card:
+    pass
