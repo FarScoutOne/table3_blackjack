@@ -43,3 +43,6 @@ class Deck:
         top_card = self.cards.pop(random.randint(0, len(self.cards)))
 
         return top_card
+
+class Card:
+    pass
