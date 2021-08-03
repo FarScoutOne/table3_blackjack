@@ -58,10 +58,4 @@ class Card:
         if self.suit == '♥' or self.suit == '♦':
             return f"| {bcolors.RED}{str(self.value)} {self.suit}{bcolors.RESET} |"
         else:
-            return f"|{str(self.value)} {self.suit}| "
-
-### TESTING ###
-new_deck = Deck()
-next_card = new_deck.remove_card()
-new_card = Card(next_card[1], next_card[0])
-print(new_card)
+            return f"| {str(self.value)} {self.suit} |"
