@@ -10,6 +10,10 @@ print("Please, have a seat.")
 import random
 
 # Create classes and define global variables
+class Game:
+    def __init__(self, num_players):
+        self.num_players = num_players
+
 class Player:
     def __init__(self, name):
         self.name = name
