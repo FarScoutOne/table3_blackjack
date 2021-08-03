@@ -45,4 +45,18 @@ class Deck:
         return top_card
 
 class Card:
-    pass
+    def __init__(self, suit, value):
+        self.suit = suit
+        self.value = value
+
+    # If the card's suit is heart or diamond, render it red
+    def __repr__(self):
+        if self.suit == 'H' or self.suit == 'D':
+            pass
+        return "|" + str(self.value) + self.suit + "|"
+
+# TESTING
+new_deck = Deck()
+next_card = new_deck.remove_card()
+new_card = Card(next_card[1], next_card[0])
+print(new_card)
