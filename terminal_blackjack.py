@@ -86,10 +86,11 @@ class Card:
         else:
             return f"| {str(self.value)} {self.suit} |"
 
+# Start a new game
 new_game = Dealer(1)
-new_game.players[0].add_card_value(new_game.deal())
-new_game.players[0].add_card_value(new_game.deal())
-print(new_game.hand)
+new_game.players[1].add_card(new_game.deal())
+new_game.players[1].add_card(new_game.deal())
+print(new_game.players[1].hand)
 print()
 
 # Loop until player chooses to stand or busts
