@@ -16,16 +16,19 @@ class bcolors:
 
 class Game:
     def __init__(self, num_players):
+        self.new_deck = Deck()
         self.players = list(range(num_players + 1))
         self.players[0] = 'Dealer'
-        self.new_deck = Deck()
-        self.deal()
-        self.deal()
 
+        self.players[1] = input("Player 1, what is your name?")
+
+    # deals a car from the deck, prints it to command-line, and returns its value
     def deal(self):
         self.new_card = self.new_deck.remove_card()
+        self.new_card_value = self.new_card[0]
         self.new_card = Card(self.new_card[0], self.new_card[1])
         print(self.new_card, end ="  ")
+        return self.new_card_value
 
 class Player:
     def __init__(self, name):
