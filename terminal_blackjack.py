@@ -17,7 +17,7 @@ class bcolors:
 class Dealer:
     def __init__(self, num_players):
         self.new_deck = Deck()
-        self.hand = []
+        self.last_card = '' # acts as latest card buffer
         self.players = list(range(num_players + 1))
         self.players[0] = Player('Dealer')
         self.players[1] = Player(input("Player 1, what is your name? "))
@@ -28,8 +28,7 @@ class Dealer:
         self.new_card = self.new_deck.remove_card()
         self.new_card_value = self.new_card[0]
         self.new_card = Card(self.new_card[0], self.new_card[1])
-        #print(self.new_card, end ="  ")
-        self.hand.append(self.new_card)
+        self.last_card = self.new_card
         return self.new_card_value
 
 class Player:
@@ -37,8 +36,10 @@ class Player:
         self.name = name
         self.hand_value = 0
         self.total_score = 0
+        self.hand = []
 
-    def add_card_value(self, value):
+    def add_card(self, value):
+        self.hand.append(new_game.last_card)
         self.value = value
         if type(self.value) == int:
             self.hand_value += self.value
