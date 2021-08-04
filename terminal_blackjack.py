@@ -87,5 +87,19 @@ class Card:
 new_game = Dealer(1)
 new_game.players[0].add_card_value(new_game.deal())
 new_game.players[0].add_card_value(new_game.deal())
+print()
+
+# Loop until player chooses to stand or busts
+hit = input("")
+while new_game.players[0].hand_value <= 21 and hit == 'y':
+    new_game.players[0].add_card_value(new_game.deal())
+    if new_game.players[0].hand_value > 21:
+        print("BUST!")
+        break
+    print()
+    hit = input("")
+
+
+
 
 print(new_game.players[0].hand_value)
