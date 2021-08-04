@@ -93,17 +93,36 @@ print(new_game.hand)
 print()
 
 # Loop until player chooses to stand or busts
-hit = input("")
-while new_game.players[0].hand_value <= 21 and hit == 'y':
-    new_game.players[0].add_card_value(new_game.deal())
-    print(new_game.hand)
-    if new_game.players[0].hand_value > 21:
-        print("BUST!")
+hit = input("Hit? [y/n] ")
+while new_game.players[1].hand_value <= 21 and hit == 'y':
+    new_game.players[1].add_card(new_game.deal())
+    print(new_game.players[1].hand)
+    if new_game.players[1].hand_value > 21:
+        print("BUST!\n")
         break
     print()
-    hit = input("")
+    hit = input("Hit? [y/n]")
 
+# Dealer's turn
+while new_game.players[0].hand_value < 16:
+    new_game.players[0].add_card(new_game.deal())
+    print(new_game.players[0].hand)
+    if new_game.players[0].hand_value >= 21:
+        print("Dealer busts.")
+        break
+    elif new_game.players[0].hand_value > 16:
+        print("Dealer stays.")
+    time.sleep(3)
 
+if new_game.players[0].hand_value > 21:
+    print("YOU WIN!")
+elif new_game.players[1].hand_value > 21:
+    print("YOU LOSE!")
+elif new_game.players[0].hand_value > new_game.players[1].hand_value:
+    print("YOU LOSE!")
+elif new_game.players[0].hand_value == new_game.players[1].hand_value:
+    print("You TIE with the dealer.")
+else:
+    print("YOU WIN!")
 
-
-print(new_game.players[0].hand_value)
+print()
