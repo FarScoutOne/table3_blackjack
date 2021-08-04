@@ -34,7 +34,6 @@ class Dealer:
 class Player:
     def __init__(self, name):
         self.name = name
-        self.cards_in_hand = []
         self.hand_value = 0
         self.total_score = 0
 
@@ -85,4 +84,8 @@ class Card:
         else:
             return f"| {str(self.value)} {self.suit} |"
 
-new_game = Game(1)
+new_game = Dealer(1)
+new_game.players[0].add_card_value(new_game.deal())
+new_game.players[0].add_card_value(new_game.deal())
+
+print(new_game.players[0].hand_value)
