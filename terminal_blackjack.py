@@ -38,6 +38,18 @@ class Player:
         self.hand_value = 0
         self.total_score = 0
 
+    def add_card_value(self, value):
+        self.value = value
+        if type(self.value) == int:
+            self.hand_value += self.value
+        elif self.value == 'A':
+            if self.hand_value + 11 <= 21:
+                self.hand_value += 11
+            else:
+                self.hand_value += 1
+        else:
+            self.hand_value += 10
+
 class Deck:
     def __init__(self):
         self.cards = [
