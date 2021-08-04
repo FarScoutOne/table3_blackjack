@@ -17,9 +17,9 @@ class bcolors:
 class Dealer:
     def __init__(self, num_players):
         self.new_deck = Deck()
+        self.hand = []
         self.players = list(range(num_players + 1))
         self.players[0] = Player('Dealer')
-
         self.players[1] = Player(input("Player 1, what is your name? "))
 
 
@@ -28,7 +28,8 @@ class Dealer:
         self.new_card = self.new_deck.remove_card()
         self.new_card_value = self.new_card[0]
         self.new_card = Card(self.new_card[0], self.new_card[1])
-        print(self.new_card, end ="  ")
+        #print(self.new_card, end ="  ")
+        self.hand.append(self.new_card)
         return self.new_card_value
 
 class Player:
@@ -87,12 +88,14 @@ class Card:
 new_game = Dealer(1)
 new_game.players[0].add_card_value(new_game.deal())
 new_game.players[0].add_card_value(new_game.deal())
+print(new_game.hand)
 print()
 
 # Loop until player chooses to stand or busts
 hit = input("")
 while new_game.players[0].hand_value <= 21 and hit == 'y':
     new_game.players[0].add_card_value(new_game.deal())
+    print(new_game.hand)
     if new_game.players[0].hand_value > 21:
         print("BUST!")
         break
