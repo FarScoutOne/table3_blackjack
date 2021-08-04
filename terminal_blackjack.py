@@ -8,6 +8,7 @@
 
 # Required modules
 import random
+import time
 
 # Create classes and define global variables
 class bcolors:
