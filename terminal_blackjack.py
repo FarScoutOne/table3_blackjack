@@ -14,13 +14,14 @@ class bcolors:
     RED = '\033[91m' #RED
     RESET = '\033[0m' #RESET COLOR
 
-class Game:
+class Dealer:
     def __init__(self, num_players):
         self.new_deck = Deck()
         self.players = list(range(num_players + 1))
-        self.players[0] = 'Dealer'
+        self.players[0] = Player('Dealer')
 
-        self.players[1] = input("Player 1, what is your name?")
+        self.players[1] = Player(input("Player 1, what is your name? "))
+
 
     # deals a car from the deck, prints it to command-line, and returns its value
     def deal(self):
