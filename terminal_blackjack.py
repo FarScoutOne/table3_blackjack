@@ -112,6 +112,7 @@ new_game.players[0].add_card(new_game.deal())
 print(new_game.players[0].hand[0])
 new_game.players[0].add_card(new_game.deal())
 print(new_game.players[0].hand[1])
+time.sleep(3)
 
 card = 2
 while new_game.players[0].hand_value < 16:
