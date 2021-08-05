@@ -99,6 +99,7 @@ hit = input("Hit? [y/n] ")
 card = 2
 while new_game.players[1].hand_value <= 21 and hit == 'y':
     new_game.players[1].add_card(new_game.deal())
+    print ("\033[A                             \033[A")
     print(new_game.players[1].hand[card])
     card += 1
     if new_game.players[1].hand_value > 21:
