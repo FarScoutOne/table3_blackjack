@@ -103,12 +103,14 @@ while new_game.players[1].hand_value <= 21 and hit == 'y':
     print(new_game.players[1].hand[card])
     card += 1
     if new_game.players[1].hand_value > 21:
-        print("BUST!\n")
+        print(f"\n>>>{bcolors.RED} BUST! {bcolors.RESET}<<<\n")
         break
-    print()
+    #print()
     hit = input("Hit? [y/n]")
+print()
 
 # Dealer's turn
+print("--=== Dealer's Hand ===--")
 new_game.players[0].add_card(new_game.deal())
 print(new_game.players[0].hand[0])
 new_game.players[0].add_card(new_game.deal())
@@ -127,10 +129,11 @@ while new_game.players[0].hand_value < 16:
         print("Dealer stays.")
     time.sleep(3)
 
+print()
 if new_game.players[0].hand_value > 21:
     print("YOU WIN!")
 elif new_game.players[1].hand_value > 21:
-    print("YOU LOSE!")
+    print(f"YOU LOSE!")
 elif new_game.players[0].hand_value > new_game.players[1].hand_value:
     print("YOU LOSE!")
 elif new_game.players[0].hand_value == new_game.players[1].hand_value:
