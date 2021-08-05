@@ -125,7 +125,7 @@ while new_game.players[0].hand_value < 16:
     if new_game.players[0].hand_value >= 21:
         print("Dealer busts.")
         break
-    elif new_game.players[0].hand_value > 16:
+    elif new_game.players[0].hand_value >= 16:
         print("Dealer stays.")
     time.sleep(3)
 
