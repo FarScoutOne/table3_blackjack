@@ -24,7 +24,7 @@ class Dealer:
         self.players[1] = Player(input("Player 1, what is your name? "))
 
 
-    # deals a car from the deck, prints it to command-line, and returns its value
+    # deals a car from the deck and returns its value
     def deal(self):
         self.new_card = self.new_deck.remove_card()
         self.new_card_value = self.new_card[0]
@@ -90,15 +90,17 @@ class Card:
 # Start a new game
 new_game = Dealer(1)
 new_game.players[1].add_card(new_game.deal())
+print(new_game.players[1].hand[0])
 new_game.players[1].add_card(new_game.deal())
-print(new_game.players[1].hand)
-print()
+print(new_game.players[1].hand[1])
 
 # Loop until player chooses to stand or busts
 hit = input("Hit? [y/n] ")
+card = 2
 while new_game.players[1].hand_value <= 21 and hit == 'y':
     new_game.players[1].add_card(new_game.deal())
-    print(new_game.players[1].hand)
+    print(new_game.players[1].hand[card])
+    card += 1
     if new_game.players[1].hand_value > 21:
         print("BUST!\n")
         break
@@ -106,9 +108,16 @@ while new_game.players[1].hand_value <= 21 and hit == 'y':
     hit = input("Hit? [y/n]")
 
 # Dealer's turn
+new_game.players[0].add_card(new_game.deal())
+print(new_game.players[0].hand[0])
+new_game.players[0].add_card(new_game.deal())
+print(new_game.players[0].hand[1])
+
+card = 2
 while new_game.players[0].hand_value < 16:
     new_game.players[0].add_card(new_game.deal())
-    print(new_game.players[0].hand)
+    print(new_game.players[0].hand[card])
+    card += 1
     if new_game.players[0].hand_value >= 21:
         print("Dealer busts.")
         break
