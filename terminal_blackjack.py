@@ -100,9 +100,9 @@ new_game.players[1].add_card(new_game.deal())
 print(new_game.players[1].hand[1])
 
 # Loop until player chooses to stand or busts
-hit = input("Hit? [y/n] ")
+hit = input("Hit or Stay?")
 card = 2
-while new_game.players[1].hand_value <= 21 and hit == 'y':
+while (new_game.players[1].hand_value <= 21 and hit == 'H') or (new_game.players[1].hand_value <= 21 and hit == 'h'):
     new_game.players[1].add_card(new_game.deal())
     print ("\033[A                             \033[A")
     print(new_game.players[1].hand[card])
@@ -111,7 +111,7 @@ while new_game.players[1].hand_value <= 21 and hit == 'y':
         print(f"\n>>>{bcolors.RED} BUST! {bcolors.RESET}<<<\n")
         break
     #print()
-    hit = input("Hit? [y/n]")
+    hit = input("Hit or Stay?")
 print()
 
 # Dealer's turn
