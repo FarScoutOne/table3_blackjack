@@ -14,7 +14,7 @@ import time
 class bcolors:
     RED = '\u001b[31m'
     WHITE = '\u001b[37m'
-    YELLO = '\u001b[33m'
+    YELLOW = '\u001b[33m'
     BLUE = '\u001b[34m'
     MAGENTA = '\u001b[35m'
     CYAN = '\u001b[36m'
@@ -47,31 +47,32 @@ class Player:
     def add_card(self, value):
         self.hand.append(new_game.last_card)
         self.value = value
-        if type(self.value) == int:
-            self.hand_value += self.value
-        elif self.value == 'A':
+
+        if self.value == ' A ':
             if self.hand_value + 11 <= 21:
                 self.hand_value += 11
             else:
                 self.hand_value += 1
-        else:
+        elif self.value == ' K ' or self.value == ' Q ' or self.value == ' J ':
             self.hand_value += 10
+        else:
+            self.hand_value += int(self.value)
 
 class Deck:
     def __init__(self):
         self.cards = [
         # Hearts
-        [2,'♥'], [3,'♥'], [4,'♥'], [5,'♥'], [6,'♥'], [7,'♥'], [8,'♥'], [9,'♥'], [10,'♥'],
-        ['J','♥'], ['Q','♥'], ['K','♥'], ['A','♥'],
+        [' 2 ', '♥ '], [' 3 ', '♥ '], [' 4 ', '♥ '], [' 5 ', '♥ '], [' 6 ', '♥ '], [' 7 ', '♥ '], [' 8 ', '♥ '], [' 9 ', '♥ '], ['10 ','♥ '],
+        [' J ', '♥ '], [' Q ', '♥ '], [' K ', '♥ '], [' A ', '♥ '],
         # Diamonds
-        [2,'♦'], [3,'♦'], [4,'♦'], [5,'♦'], [6,'♦'], [7,'♦'], [8,'♦'], [9,'♦'], [10,'♦'],
-        ['J','♦'], ['Q','♦'], ['K','♦'], ['A','♦'],
+        [' 2 ','♦ '], [' 3 ','♦ '], [' 4 ','♦ '], [' 5 ','♦ '], [' 6 ','♦ '], [' 7 ','♦ '], [' 8 ','♦ '], [' 9 ','♦ '], ['10 ','♦ '],
+        [' J ','♦ '], [' Q ','♦ '], [' K ','♦ '], [' A ','♦ '],
         # Clubs
-        [2,'♣'], [3,'♣'], [4,'♣'], [5,'♣'], [6,'♣'], [7,'♣'], [8,'♣'], [9,'♣'], [10,'♣'],
-        ['J','♣'], ['Q','♣'], ['K','♣'], ['A','♣'],
+        [' 2 ','♣ '], [' 3 ','♣ '], [' 4 ','♣ '], [' 5 ','♣ '], [' 6 ','♣ '], [' 7 ','♣ '], [' 8 ','♣ '], [' 9 ','♣ '], ['10 ','♣ '],
+        [' J ','♣ '], [' Q ','♣ '], [' K ','♣ '], [' A ','♣ '],
         # Spades
-        [2,'♠'], [3,'♠'], [4,'♠'], [5,'♠'], [6,'♠'], [7,'♠'], [8,'♠'], [9,'♠'], [10,'♠'],
-        ['J','♠'], ['Q','♠'], ['K','♠'], ['A','♠'],
+        [' 2 ','♠ '], [' 3 ','♠ '], [' 4 ','♠ '], [' 5 ','♠ '], [' 6 ','♠ '], [' 7 ','♠ '], [' 8 ','♠ '], [' 9 ','♠ '], ['10 ','♠ '],
+        [' J ','♠ '], [' Q ','♠ '], [' K ','♠ '], [' A ','♠ '],
         ]
 
     # Returns a random card popped out of the remaining cards in the deck
@@ -87,10 +88,10 @@ class Card:
 
     # If the card's suit is heart or diamond, render it red
     def __repr__(self):
-        if self.suit == '♥' or self.suit == '♦':
-            return f"{bcolors.MAGENTA}| {bcolors.RED}{str(self.value)} {self.suit} {bcolors.MAGENTA}|{bcolors.RESET}"
+        if self.suit == '♥ ' or self.suit == '♦ ':
+            return f"{bcolors.MAGENTA}|{bcolors.RED}{str(self.value)}{self.suit}{bcolors.MAGENTA}|{bcolors.RESET}"
         else:
-            return f"{bcolors.MAGENTA}| {bcolors.RESET}{str(self.value)} {self.suit} {bcolors.MAGENTA}|{bcolors.RESET}"
+            return f"{bcolors.MAGENTA}|{bcolors.BLUE}{str(self.value)}{self.suit}{bcolors.MAGENTA}|{bcolors.RESET}"
 
 # Start a new game
 new_game = Dealer(1)
@@ -100,7 +101,7 @@ new_game.players[1].add_card(new_game.deal())
 print(new_game.players[1].hand[1])
 
 # Loop until player chooses to stand or busts
-hit = input("Hit or Stay?")
+hit = input("Hit or Stay? ")
 card = 2
 while (new_game.players[1].hand_value <= 21 and hit == 'H') or (new_game.players[1].hand_value <= 21 and hit == 'h'):
     new_game.players[1].add_card(new_game.deal())
@@ -111,7 +112,7 @@ while (new_game.players[1].hand_value <= 21 and hit == 'H') or (new_game.players
         print(f"\n>>>{bcolors.RED} BUST! {bcolors.RESET}<<<\n")
         break
     #print()
-    hit = input("Hit or Stay?")
+    hit = input("Hit or Stay? ")
 print()
 
 # Dealer's turn
@@ -123,19 +124,19 @@ print(new_game.players[0].hand[1])
 time.sleep(2)
 card = 2
 if new_game.players[0].hand_value >= 16:
-    print("Dealer stays.")
+    print("\nDealer stays.")
 
-time.sleep(3)
+time.sleep(2)
 while new_game.players[0].hand_value < 16:
     new_game.players[0].add_card(new_game.deal())
     print(new_game.players[0].hand[card])
     card += 1
     if new_game.players[0].hand_value > 21:
-        print("Dealer busts.")
+        print("\nDealer busts.")
         break
     elif new_game.players[0].hand_value >= 16:
-        print("Dealer stays.")
-    time.sleep(3)
+        print("\nDealer stays.")
+    time.sleep(2)
 
 print()
 if new_game.players[0].hand_value > 21:
