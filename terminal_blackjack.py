@@ -88,9 +88,9 @@ class Card:
     # If the card's suit is heart or diamond, render it red
     def __repr__(self):
         if self.suit == '♥' or self.suit == '♦':
-            return f"| {bcolors.RED}{str(self.value)} {self.suit}{bcolors.RESET} |"
+            return f"{bcolors.MAGENTA}| {bcolors.RED}{str(self.value)} {self.suit} {bcolors.MAGENTA}|{bcolors.RESET}"
         else:
-            return f"| {str(self.value)} {self.suit} |"
+            return f"{bcolors.MAGENTA}| {bcolors.RESET}{str(self.value)} {self.suit} {bcolors.MAGENTA}|{bcolors.RESET}"
 
 # Start a new game
 new_game = Dealer(1)
