@@ -12,8 +12,13 @@ import time
 
 # Create classes and define global variables
 class bcolors:
-    RED = '\033[91m' #RED
-    RESET = '\033[0m' #RESET COLOR
+    RED = '\u001b[31m'
+    WHITE = '\u001b[37m'
+    YELLO = '\u001b[33m'
+    BLUE = '\u001b[34m'
+    MAGENTA = '\u001b[35m'
+    CYAN = '\u001b[36m'
+    RESET = '\u001b[0m' #RESETS COLOR SETTINGS
 
 class Dealer:
     def __init__(self, num_players):
