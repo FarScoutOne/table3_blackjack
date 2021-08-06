@@ -120,14 +120,17 @@ new_game.players[0].add_card(new_game.deal())
 print(new_game.players[0].hand[0])
 new_game.players[0].add_card(new_game.deal())
 print(new_game.players[0].hand[1])
-time.sleep(3)
-
+time.sleep(2)
 card = 2
+if new_game.players[0].hand_value >= 16:
+    print("Dealer stays.")
+
+time.sleep(3)
 while new_game.players[0].hand_value < 16:
     new_game.players[0].add_card(new_game.deal())
     print(new_game.players[0].hand[card])
     card += 1
-    if new_game.players[0].hand_value >= 21:
+    if new_game.players[0].hand_value > 21:
         print("Dealer busts.")
         break
     elif new_game.players[0].hand_value >= 16:
@@ -136,14 +139,14 @@ while new_game.players[0].hand_value < 16:
 
 print()
 if new_game.players[0].hand_value > 21:
-    print("YOU WIN!")
+    print("<<< YOU WIN! >>>")
 elif new_game.players[1].hand_value > 21:
-    print(f"YOU LOSE!")
+    print(f"<<< LOSER! >>>")
 elif new_game.players[0].hand_value > new_game.players[1].hand_value:
-    print("YOU LOSE!")
+    print("<<< YOU LOSE! >>>")
 elif new_game.players[0].hand_value == new_game.players[1].hand_value:
-    print("You TIE with the dealer.")
+    print("<<< You TIE with the dealer. >>>")
 else:
-    print("YOU WIN!")
+    print("<<< YOU WIN! >>>")
 
 print()
