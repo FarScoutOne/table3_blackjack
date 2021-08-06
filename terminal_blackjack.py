@@ -14,7 +14,7 @@ import time
 class bcolors:
     RED = '\u001b[31m'
     WHITE = '\u001b[37m'
-    YELLO = '\u001b[33m'
+    YELLOW = '\u001b[33m'
     BLUE = '\u001b[34m'
     MAGENTA = '\u001b[35m'
     CYAN = '\u001b[36m'
@@ -88,10 +88,10 @@ class Card:
 
     # If the card's suit is heart or diamond, render it red
     def __repr__(self):
-        if self.suit == '♥' or self.suit == '♦':
-            return f"{bcolors.MAGENTA}| {bcolors.RED}{str(self.value)} {self.suit} {bcolors.MAGENTA}|{bcolors.RESET}"
+        if self.suit == '♥ ' or self.suit == '♦ ':
+            return f"{bcolors.MAGENTA}|{bcolors.RED}{str(self.value)}{self.suit}{bcolors.MAGENTA}|{bcolors.RESET}"
         else:
-            return f"{bcolors.MAGENTA}| {bcolors.RESET}{str(self.value)} {self.suit} {bcolors.MAGENTA}|{bcolors.RESET}"
+            return f"{bcolors.MAGENTA}|{bcolors.BLUE}{str(self.value)}{self.suit}{bcolors.MAGENTA}|{bcolors.RESET}"
 
 # Start a new game
 new_game = Dealer(1)
