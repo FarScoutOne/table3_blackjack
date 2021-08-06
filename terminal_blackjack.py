@@ -101,7 +101,7 @@ new_game.players[1].add_card(new_game.deal())
 print(new_game.players[1].hand[1])
 
 # Loop until player chooses to stand or busts
-hit = input("Hit or Stay?")
+hit = input("Hit or Stay? ")
 card = 2
 while (new_game.players[1].hand_value <= 21 and hit == 'H') or (new_game.players[1].hand_value <= 21 and hit == 'h'):
     new_game.players[1].add_card(new_game.deal())
@@ -112,7 +112,7 @@ while (new_game.players[1].hand_value <= 21 and hit == 'H') or (new_game.players
         print(f"\n>>>{bcolors.RED} BUST! {bcolors.RESET}<<<\n")
         break
     #print()
-    hit = input("Hit or Stay?")
+    hit = input("Hit or Stay? ")
 print()
 
 # Dealer's turn
@@ -124,19 +124,19 @@ print(new_game.players[0].hand[1])
 time.sleep(2)
 card = 2
 if new_game.players[0].hand_value >= 16:
-    print("Dealer stays.")
+    print("\nDealer stays.")
 
-time.sleep(3)
+time.sleep(2)
 while new_game.players[0].hand_value < 16:
     new_game.players[0].add_card(new_game.deal())
     print(new_game.players[0].hand[card])
     card += 1
     if new_game.players[0].hand_value > 21:
-        print("Dealer busts.")
+        print("\nDealer busts.")
         break
     elif new_game.players[0].hand_value >= 16:
-        print("Dealer stays.")
-    time.sleep(3)
+        print("\nDealer stays.")
+    time.sleep(2)
 
 print()
 if new_game.players[0].hand_value > 21:
