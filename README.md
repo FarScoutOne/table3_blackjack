@@ -1,4 +1,5 @@
-# Terminal Blackjack  ![image](https://user-images.githubusercontent.com/64247887/128559437-b253b51e-8170-4df9-a3f2-f9c4615f8c35.png)
+# Table 3 Blackjack  ![image](https://user-images.githubusercontent.com/64247887/128559437-b253b51e-8170-4df9-a3f2-f9c4615f8c35.png)
+
 
 This is a simple blackjack game that is played in the terminal window. I am making this game to practice using GitHub to plan, organize, and maintain a development project, and most importantly, for FUN.
 
